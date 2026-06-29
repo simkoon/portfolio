@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>심호길 · 반도체 양산기술 포트폴리오 — AI 도입 판단 · 자동화 Workflow</title>
+<meta name="description" content="현장 난제에 어떤 AI를 도입할지 판단·설계하고, 자동화 Workflow로 반복업무를 제거해 온 반도체 SW 엔지니어. OPC Studio · Paste Simulation 개인 프로젝트.">
+<style>
+  :root{
+    --ink:#0f141c;--sub:#5b6472;--line:#e6e9ef;--bg:#f5f7fb;--card:#fff;
+    --blue:#1565c0;--bluebg:#e8f1fc;--green:#1b7a3e;--greenbg:#e9f6ee;
+    --purple:#6d28d9;--purplebg:#f1ebfe;--amber:#a36a00;--amberbg:#fdf3e0;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",Segoe UI,sans-serif;
+    font-size:16px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:880px;margin:0 auto;padding:0 20px 80px}
+  /* hero */
+  .hero{background:linear-gradient(135deg,#0b1220,#1b2740 60%,#243656);color:#fff;
+    border-radius:0 0 22px 22px;padding:54px 32px 40px;box-shadow:0 12px 40px rgba(12,20,40,.25)}
+  .hero .eyebrow{color:#8fb6e8;font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
+  .hero h1{margin:10px 0 6px;font-size:30px;letter-spacing:-.6px}
+  .hero .role{color:#b8c6dc;font-size:15px}
+  .hero .lead{margin-top:18px;font-size:18px;line-height:1.65;color:#eaf1fb;max-width:680px}
+  .hero .lead b{color:#fff;border-bottom:2px solid #4f8fe0}
+  .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+    padding:6px 13px;border-radius:999px;font-size:13px;font-weight:600}
+  .badge.p{background:#1b7a3e;border-color:#1b7a3e}
+  /* sections */
+  section{background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:26px 28px;margin-top:22px;box-shadow:0 3px 14px rgba(15,20,30,.05)}
+  .kicker{font-size:12.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--blue)}
+  h2{font-size:21px;margin:6px 0 4px;letter-spacing:-.4px}
+  h2 .solo{font-size:12px;font-weight:700;color:var(--blue);background:var(--bluebg);padding:3px 9px;border-radius:7px;vertical-align:3px;margin-left:8px}
+  h2 .collab{color:var(--green);background:var(--greenbg)}
+  .proj-sub{color:var(--sub);font-size:14px;margin-bottom:14px}
+  h3{font-size:14px;color:var(--sub);margin:18px 0 6px;text-transform:uppercase;letter-spacing:.5px}
+  p{margin:0 0 12px}
+  ul{margin:6px 0 12px;padding-left:0;list-style:none}
+  li{position:relative;padding:6px 0 6px 24px}
+  li::before{content:"";position:absolute;left:4px;top:14px;width:7px;height:7px;border-radius:2px;background:var(--blue)}
+  .metrics{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 4px}
+  .metric{flex:1;min-width:130px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+  .metric .num{font-size:22px;font-weight:800;color:var(--blue)}
+  .metric .lbl{font-size:12.5px;color:var(--sub)}
+  .tagrow{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .tag{background:var(--bg);border:1px solid var(--line);border-radius:7px;padding:3px 9px;font-size:12.5px;color:var(--sub)}
+  .pill{display:inline-block;font-size:11.5px;font-weight:800;padding:2px 9px;border-radius:999px;margin-right:6px}
+  .pill.p1{background:var(--purplebg);color:var(--purple)}
+  .pill.p2{background:var(--greenbg);color:var(--green)}
+  .bridge{background:linear-gradient(135deg,#0d7a52,#0e8a5f);color:#fff;border:none}
+  .bridge h2{color:#fff}
+  .bridge .kicker{color:#bdf0d8}
+  .bridge .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+  @media(max-width:620px){.bridge .grid{grid-template-columns:1fr}}
+  .bridge .cell{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:14px 16px}
+  .bridge .cell b{display:block;margin-bottom:4px;font-size:15px}
+  .bridge .cell span{font-size:13.5px;color:#dff5ea}
+  .note{font-size:12.5px;color:var(--sub);background:var(--amberbg);border-left:3px solid var(--amber);padding:10px 13px;border-radius:0 8px 8px 0;margin-top:14px}
+  footer{text-align:center;color:var(--sub);font-size:13px;margin-top:30px}
+  a.btn{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;padding:9px 16px;border-radius:9px;font-weight:700;font-size:14px}
+</style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="wrap" style="padding-top:0">
+      <div class="eyebrow">반도체 양산기술 · 장비 SW 엔지니어</div>
+      <h1>심호길 — 포트폴리오</h1>
+      <div class="role">물리 기반 · 검사장비 제어/응용 SW · OPC·물리 시뮬레이션 개인 프로젝트</div>
+      <p class="lead">현장 난제에 <b>어떤 AI를 어떤 구조로 도입할지 직접 판단·설계</b>하고, <b>자동화 Workflow를 직접 구축해 반복 업무를 제거</b>해 온 엔지니어입니다. 아래 두 개인 프로젝트가 그 능력의 직접 증거입니다.</p>
+      <div class="badges">
+        <span class="badge p">P1 · AI 도입 판단·설계</span>
+        <span class="badge p">P2 · 자동화 Workflow 구축</span>
+        <span class="badge">광학·계측 물리</span>
+        <span class="badge">C++ · CUDA · Python</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+
+    <!-- Project 1 -->
+    <section>
+      <div class="kicker">Project 01 · 개인 프로젝트</div>
+      <h2>OPC Studio<span class="solo">단독 설계·구현</span></h2>
+      <div class="proj-sub">리소그래피 OPC/ILT 시뮬레이션 엔진을 AI 멀티에이전트 하네스로 설계·구현 — “어떤 AI를 어떤 구조로 운용할지”를 직접 판단한 사례</div>
+
+      <h3>문제</h3>
+      <p>회절 광학 모델링, GPU 수치연산, EDA 파일 파싱은 각각 다른 전문 영역이라 한 사람이 순차로 공략하기 어렵습니다. 본업과 병행하며 이 복합 난제를 어떻게 풀 것인가가 핵심이었습니다.</p>
+
+      <h3>접근 <span class="pill p1">P1</span></h3>
+      <ul>
+        <li>plan → execute → verify로 역할을 나눈 <b>AI 멀티에이전트 하네스</b>를 직접 설계해, 영역별로 다른 AI 도구를 비교·도입·최적화하며 운용</li>
+        <li>물리 엔진을 직접 구현: Hopkins 회절 모델, TCC/SOCS 분해, 부분 결맞음 결상, <b>CUDA FFT 기반 aerial image</b> 시뮬레이션, 픽셀 단위 ILT</li>
+        <li>OPC SW 아키텍처와 레이아웃(OASIS) 파싱 툴킷까지 엔드투엔드 구성</li>
+      </ul>
+
+      <h3>결과</h3>
+      <div class="metrics">
+        <div class="metric"><div class="num">256²</div><div class="lbl">합성 클립 EPE 단조감소·수렴(MPS)</div></div>
+        <div class="metric"><div class="num">10-clip</div><div class="lbl">EPE·PV-band 평가 하니스 구축</div></div>
+        <div class="metric"><div class="num">~3개월</div><div class="lbl">본업 병행, 핵심 변환흐름 전체 구현</div></div>
+      </div>
+      <div class="tagrow">
+        <span class="tag">ILT</span><span class="tag">Hopkins/TCC/SOCS</span><span class="tag">CUDA FFT</span><span class="tag">부분결맞음</span><span class="tag">OASIS 파싱</span><span class="tag">C++/CUDA</span>
+      </div>
+      <div class="note">검증 범위: 합성 클립에 대한 수렴(Minimal Patterning Set)과 평가 하니스 구축까지 확인했습니다. 공인 벤치마크 통과나 양산(fab) 적용을 주장하지 않습니다.</div>
+    </section>
+
+    <!-- Project 2 -->
+    <section>
+      <div class="kicker">Project 02 · 개인 협업 프로젝트</div>
+      <h2>Paste Simulation<span class="solo collab">2인 협업 · SW 개발 리드</span></h2>
+      <div class="proj-sub">비개발자 동료에게 AI 활용을 직접 전파해 함께 물리 시뮬레이션 SW를 개발 — AI를 팀에 확산시킨 사례</div>
+
+      <h3>문제</h3>
+      <p>물리 도메인 지식은 있으나 개발 경험이 없는 동료와 함께, 시뮬레이션 SW를 빠르게 만들어야 했습니다.</p>
+
+      <h3>접근 <span class="pill p1">P1</span> <span class="pill p2">P2</span></h3>
+      <ul>
+        <li>SW 개발을 리드하면서, <b>비개발자 동료에게 AI 활용 방법을 직접 전파</b>해 함께 코드를 작성·개선하는 협업 방식을 구축</li>
+        <li>파라미터 입력 → 시뮬레이션 → 결과 시각화로 이어지는 워크플로우를 구현하고, 결과를 데이터로 검증</li>
+      </ul>
+
+      <h3>결과</h3>
+      <ul>
+        <li>비전문가도 AI로 실제 SW 개발에 기여하는 협업 패턴을 확립 — AI 도입이 개인 역량을 넘어 <b>팀 생산성</b>으로 확산</li>
+        <li>물리 파라미터를 바꿔가며 결과를 비교·검증하는 데이터 기반 루프 완성</li>
+      </ul>
+      <div class="tagrow">
+        <span class="tag">AI 페어 개발</span><span class="tag">물리 시뮬레이션</span><span class="tag">데이터 검증</span><span class="tag">시각화</span><span class="tag">협업 리드</span>
+      </div>
+    </section>
+
+    <!-- Bridge to 양산기술 -->
+    <section class="bridge">
+      <div class="kicker">양산기술로의 전이</div>
+      <h2>이 AI·자동화 운용 능력을 청주 Fab 현장에 적용하겠습니다</h2>
+      <div class="grid">
+        <div class="cell"><b>P1 · AI 도입 판단·설계</b><span>어떤 AI를 어떤 구조로 운용할지 직접 판단한 방식을, 장비 이벤트·Wafer Loss 데이터 분석과 반복 진단 업무에 적용</span></div>
+        <div class="cell"><b>P2 · 자동화 Workflow</b><span>반복 업무를 자동 Workflow로 제거한 패턴을, 양산기술의 Setup TAT 표준화·비정기 PM 감소에 연결</span></div>
+        <div class="cell"><b>계측·매칭 사고방식</b><span>입력→출력 전달함수를 정량화·교정해 온 계측 경험을 TTTM·Setup 장비 품질 확보로 전이</span></div>
+        <div class="cell"><b>불량 원인분석(RCA)</b><span>신호 이상을 레지스터 레벨까지 원인 분리한 역량을 장비 고장·공정 불량 분석/개선에 적용</span></div>
+      </div>
+    </section>
+
+    <footer>
+      © 심호길 · 반도체 양산기술 지원 포트폴리오 · 본 포트폴리오의 수치·내용은 실측·실제 작업 기준이며 면접에서 근거와 함께 설명 가능합니다.
+    </footer>
+
+  </div>
+</body>
+</html>
