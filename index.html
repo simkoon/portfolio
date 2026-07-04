@@ -47,9 +47,13 @@
   .metric .lbl{font-size:12.5px;color:var(--sub)}
   .tagrow{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
   .tag{background:var(--bg);border:1px solid var(--line);border-radius:7px;padding:3px 9px;font-size:12.5px;color:var(--sub)}
-  .pill{display:inline-block;font-size:11.5px;font-weight:800;padding:2px 9px;border-radius:999px;margin-right:6px}
-  .pill.p1{background:var(--purplebg);color:var(--purple)}
-  .pill.p2{background:var(--greenbg);color:var(--green)}
+  /* UI screenshots */
+  figure.shot{margin:16px 0 4px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card)}
+  figure.shot img{display:block;width:100%;height:auto}
+  figure.shot figcaption{font-size:12.5px;color:var(--sub);padding:9px 14px;border-top:1px solid var(--line);background:var(--bg)}
+  .shots{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0 4px}
+  .shots figure.shot{margin:0}
+  @media(max-width:620px){.shots{grid-template-columns:1fr}}
   .bridge{background:linear-gradient(135deg,#0d7a52,#0e8a5f);color:#fff;border:none}
   .bridge h2{color:#fff}
   .bridge .kicker{color:#bdf0d8}
@@ -72,8 +76,8 @@
       <div class="role">물리 기반 · 검사장비 제어/응용 SW · OPC·물리 시뮬레이션 개인 프로젝트</div>
       <p class="lead">현장 난제에 <b>어떤 AI를 어떤 구조로 도입할지 직접 판단·설계</b>하고, <b>자동화 Workflow를 직접 구축해 반복 업무를 제거</b>해 온 엔지니어입니다. 아래 두 개인 프로젝트가 그 능력의 직접 증거입니다.</p>
       <div class="badges">
-        <span class="badge p">P1 · AI 도입 판단·설계</span>
-        <span class="badge p">P2 · 자동화 Workflow 구축</span>
+        <span class="badge p">AI 도입 판단·설계</span>
+        <span class="badge p">자동화 Workflow 구축</span>
         <span class="badge">광학·계측 물리</span>
         <span class="badge">C++ · CUDA · Python</span>
       </div>
@@ -91,7 +95,7 @@
       <h3>문제</h3>
       <p>회절 광학 모델링, GPU 수치연산, EDA 파일 파싱은 각각 다른 전문 영역이라 한 사람이 순차로 공략하기 어렵습니다. 본업과 병행하며 이 복합 난제를 어떻게 풀 것인가가 핵심이었습니다.</p>
 
-      <h3>접근 <span class="pill p1">P1</span></h3>
+      <h3>접근</h3>
       <ul>
         <li>plan → execute → verify로 역할을 나눈 <b>AI 멀티에이전트 하네스</b>를 직접 설계해, 영역별로 다른 AI 도구를 비교·도입·최적화하며 운용</li>
         <li>물리 엔진을 직접 구현: Hopkins 회절 모델, TCC/SOCS 분해, 부분 결맞음 결상, <b>CUDA FFT 기반 aerial image</b> 시뮬레이션, 픽셀 단위 ILT</li>
@@ -107,6 +111,10 @@
       <div class="tagrow">
         <span class="tag">ILT</span><span class="tag">Hopkins/TCC/SOCS</span><span class="tag">CUDA FFT</span><span class="tag">부분결맞음</span><span class="tag">OASIS 파싱</span><span class="tag">C++/CUDA</span>
       </div>
+      <figure class="shot">
+        <img src="assets/opc_studio_ui.png" alt="OPC Studio 실행 화면 — GPU 레이아웃 뷰어와 SEM 컨투어 추출·ILT 최적화 패널" loading="lazy">
+        <figcaption>OPC Studio 실행 화면 — GPU 레이아웃 뷰어(좌) · SEM 이미지에서 컨투어 추출(우, 522 control points) · ILT 최적화 패널</figcaption>
+      </figure>
       <div class="note">검증 범위: 합성 클립에 대한 수렴(Minimal Patterning Set)과 평가 하니스 구축까지 확인했습니다. 공인 벤치마크 통과나 양산(fab) 적용을 주장하지 않습니다.</div>
     </section>
 
@@ -119,7 +127,7 @@
       <h3>문제</h3>
       <p>물리 도메인 지식은 있으나 개발 경험이 없는 동료와 함께, 시뮬레이션 SW를 빠르게 만들어야 했습니다.</p>
 
-      <h3>접근 <span class="pill p1">P1</span> <span class="pill p2">P2</span></h3>
+      <h3>접근</h3>
       <ul>
         <li>SW 개발을 리드하면서, <b>비개발자 동료에게 AI 활용 방법을 직접 전파</b>해 함께 코드를 작성·개선하는 협업 방식을 구축</li>
         <li>파라미터 입력 → 시뮬레이션 → 결과 시각화로 이어지는 워크플로우를 구현하고, 결과를 데이터로 검증</li>
@@ -130,6 +138,16 @@
         <li>비전문가도 AI로 실제 SW 개발에 기여하는 협업 패턴을 확립 — AI 도입이 개인 역량을 넘어 <b>팀 생산성</b>으로 확산</li>
         <li>물리 파라미터를 바꿔가며 결과를 비교·검증하는 데이터 기반 루프 완성</li>
       </ul>
+      <div class="shots">
+        <figure class="shot">
+          <img src="assets/paste_sim_ui_params.png" alt="Paste Simulation 파라미터 입력 화면" loading="lazy">
+          <figcaption>파라미터 입력 — 입자 조성·입도(PSD)·용매 조건을 설정</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/paste_sim_ui_result.png" alt="Paste Simulation 결과·검증 화면" loading="lazy">
+          <figcaption>결과·검증 — 예측값(Shear strength·Porosity)을 문헌 범위와 대조</figcaption>
+        </figure>
+      </div>
       <div class="tagrow">
         <span class="tag">AI 페어 개발</span><span class="tag">물리 시뮬레이션</span><span class="tag">데이터 검증</span><span class="tag">시각화</span><span class="tag">협업 리드</span>
       </div>
@@ -140,8 +158,8 @@
       <div class="kicker">양산기술로의 전이</div>
       <h2>이 AI·자동화 운용 능력을 청주 Fab 현장에 적용하겠습니다</h2>
       <div class="grid">
-        <div class="cell"><b>P1 · AI 도입 판단·설계</b><span>어떤 AI를 어떤 구조로 운용할지 직접 판단한 방식을, 장비 이벤트·Wafer Loss 데이터 분석과 반복 진단 업무에 적용</span></div>
-        <div class="cell"><b>P2 · 자동화 Workflow</b><span>반복 업무를 자동 Workflow로 제거한 패턴을, 양산기술의 Setup TAT 표준화·비정기 PM 감소에 연결</span></div>
+        <div class="cell"><b>AI 도입 판단·설계</b><span>어떤 AI를 어떤 구조로 운용할지 직접 판단한 방식을, 장비 이벤트·Wafer Loss 데이터 분석과 반복 진단 업무에 적용</span></div>
+        <div class="cell"><b>자동화 Workflow</b><span>반복 업무를 자동 Workflow로 제거한 패턴을, 양산기술의 Setup TAT 표준화·비정기 PM 감소에 연결</span></div>
         <div class="cell"><b>계측·매칭 사고방식</b><span>입력→출력 전달함수를 정량화·교정해 온 계측 경험을 TTTM·Setup 장비 품질 확보로 전이</span></div>
         <div class="cell"><b>불량 원인분석(RCA)</b><span>신호 이상을 레지스터 레벨까지 원인 분리한 역량을 장비 고장·공정 불량 분석/개선에 적용</span></div>
       </div>
