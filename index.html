@@ -97,8 +97,8 @@
 
       <h3>접근</h3>
       <ul>
-        <li>plan → execute → verify로 역할을 나눈 <b>AI 멀티에이전트 하네스</b>를 직접 설계해, 영역별로 다른 AI 도구를 비교·도입·최적화하며 운용</li>
-        <li>물리 엔진을 직접 구현: Hopkins 회절 모델, TCC/SOCS 분해, 부분 결맞음 결상, <b>CUDA FFT 기반 aerial image</b> 시뮬레이션, 픽셀 단위 ILT</li>
+        <li>plan → execute → verify로 역할을 나눈 <b>AI 멀티에이전트 하네스(GSD)</b>를 직접 설계·오케스트레이션 — 현장 난제에 어떤 AI를 어떤 구조로 투입할지 직접 판단·설계</li>
+        <li>물리 엔진을 직접 구현: Hopkins/SOCS 결상(OpenILT 검증 193nm ArF SOCS 커널 기반), 부분 결맞음 결상, <b>PyTorch FFT aerial image</b>(CUDA/Apple MPS 자동 선택), 픽셀 단위 ILT</li>
         <li>OPC SW 아키텍처와 레이아웃(OASIS) 파싱 툴킷까지 엔드투엔드 구성</li>
       </ul>
 
@@ -109,7 +109,7 @@
         <div class="metric"><div class="num">~3개월</div><div class="lbl">본업 병행, 핵심 변환흐름 전체 구현</div></div>
       </div>
       <div class="tagrow">
-        <span class="tag">ILT</span><span class="tag">Hopkins/TCC/SOCS</span><span class="tag">CUDA FFT</span><span class="tag">부분결맞음</span><span class="tag">OASIS 파싱</span><span class="tag">C++/CUDA</span>
+        <span class="tag">ILT</span><span class="tag">Hopkins/SOCS</span><span class="tag">PyTorch FFT</span><span class="tag">부분결맞음</span><span class="tag">OASIS 파싱</span><span class="tag">C++/CUDA</span>
       </div>
       <figure class="shot">
         <img src="assets/opc_studio_ui.png" alt="OPC Studio 실행 화면 — GPU 레이아웃 뷰어와 SEM 컨투어 추출·ILT 최적화 패널" loading="lazy">
