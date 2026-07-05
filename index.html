@@ -103,10 +103,11 @@
       </ul>
 
       <h3>결과</h3>
+      <p>OPC/ILT는 한마디로 <b>“웨이퍼에 원하는 모양이 그대로 찍히도록, 마스크에 그릴 패턴을 거꾸로 계산”</b>하는 기술입니다. 핵심 성과는 <b>직접 만든 이 계산 엔진이 실제로 작동한다는 것을 수치로 보인 것</b>입니다 — 목표 도형과 ‘실제로 인쇄될 예측 모양’ 사이의 가장자리 어긋남(업계에서 EPE라 부르는 오차)이 최적화를 반복할수록 계속 줄어 안정적인 값으로 수렴했고, 이 연산은 GPU에서 돌아갑니다.</p>
       <div class="metrics">
-        <div class="metric"><div class="num">256²</div><div class="lbl">합성 클립 EPE 단조감소·수렴(MPS)</div></div>
-        <div class="metric"><div class="num">10-clip</div><div class="lbl">EPE·PV-band 평가 하니스 구축</div></div>
-        <div class="metric"><div class="num">~3개월</div><div class="lbl">본업 병행, 핵심 변환흐름 전체 구현</div></div>
+        <div class="metric"><div class="num">수렴 ✓</div><div class="lbl">시험 패턴(256×256)에서 인쇄 오차가 반복마다 줄어 안정화 — 최적화 엔진이 실제로 동작함 (GPU·Apple MPS)</div></div>
+        <div class="metric"><div class="num">10-clip</div><div class="lbl">업계 표준 시험세트(ICCAD-2013) 10종의 성능을 자동으로 채점하는 평가 도구까지 구축</div></div>
+        <div class="metric"><div class="num">~3개월</div><div class="lbl">본업과 병행해 설계→광학→최적화→검증 전 과정을 혼자 구현</div></div>
       </div>
       <div class="tagrow">
         <span class="tag">ILT</span><span class="tag">Hopkins/SOCS</span><span class="tag">PyTorch FFT</span><span class="tag">부분결맞음</span><span class="tag">OASIS 파싱</span><span class="tag">C++/CUDA</span>
@@ -115,7 +116,7 @@
         <img src="assets/opc_studio_ui.png" alt="OPC Studio 실행 화면 — GPU 레이아웃 뷰어와 SEM 컨투어 추출·ILT 최적화 패널" loading="lazy">
         <figcaption>OPC Studio 실행 화면 — GPU 레이아웃 뷰어(좌) · SEM 이미지에서 컨투어 추출(우, 522 control points) · ILT 최적화 패널</figcaption>
       </figure>
-      <div class="note">검증 범위: 합성 클립에 대한 수렴(Minimal Patterning Set)과 평가 하니스 구축까지 확인했습니다. 공인 벤치마크 통과나 양산(fab) 적용을 주장하지 않습니다.</div>
+      <div class="note">검증 범위: 시험 패턴에 대한 최적화 수렴과 표준 벤치마크 평가 도구 구축까지 확인했습니다. 공인 벤치마크 “통과”나 양산(fab) 적용은 주장하지 않습니다 — 면접에서 근거와 함께 설명 가능합니다.</div>
     </section>
 
     <!-- Project 2 -->
