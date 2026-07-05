@@ -88,7 +88,7 @@
 
     <!-- Project 1 -->
     <section>
-      <div class="kicker">Project 01 · 개인 프로젝트</div>
+      <div class="kicker">Project 01 · 개인 프로젝트 · 진행 중</div>
       <h2>OPC Studio<span class="solo">단독 설계·구현</span></h2>
       <div class="proj-sub">리소그래피 OPC/ILT 시뮬레이션 엔진을 AI 멀티에이전트 하네스로 설계·구현 — “어떤 AI를 어떤 구조로 운용할지”를 직접 판단한 사례</div>
 
@@ -103,12 +103,12 @@
       </ul>
 
       <h3>결과</h3>
-      <p>OPC/ILT는 한마디로 <b>“웨이퍼에 원하는 모양이 그대로 찍히도록, 마스크에 그릴 패턴을 거꾸로 계산”</b>하는 기술입니다. 핵심 성과는 <b>직접 만든 이 계산 엔진이 실제로 작동한다는 것을 수치로 보인 것</b>입니다 — 목표 도형과 ‘실제로 인쇄될 예측 모양’ 사이의 가장자리 어긋남(업계에서 EPE라 부르는 오차)이 최적화를 반복할수록 계속 줄어 안정적인 값으로 수렴했고, 이 연산은 GPU에서 돌아갑니다.</p>
-      <div class="metrics">
-        <div class="metric"><div class="num">수렴 ✓</div><div class="lbl">시험 패턴(256×256)에서 인쇄 오차가 반복마다 줄어 안정화 — 최적화 엔진이 실제로 동작함 (GPU·Apple MPS)</div></div>
-        <div class="metric"><div class="num">10-clip</div><div class="lbl">업계 표준 시험세트(ICCAD-2013) 10종의 성능을 자동으로 채점하는 평가 도구까지 구축</div></div>
-        <div class="metric"><div class="num">~3개월</div><div class="lbl">본업과 병행해 설계→광학→최적화→검증 전 과정을 혼자 구현</div></div>
-      </div>
+      <ul>
+        <li><b>“마스크에 무엇을 그려야 웨이퍼에 원하는 모양이 그대로 찍히는가”를 거꾸로 계산하는 엔진</b>을 직접 구현하고, 그 엔진이 실제로 작동함을 수치로 확인</li>
+        <li>목표 도형과 ‘실제로 인쇄될 예측 모양’의 가장자리 어긋남(업계에서 EPE라 부르는 오차)이 <b>최적화를 반복할수록 계속 줄어 안정적으로 수렴</b> — 256×256 시험 패턴, GPU(Apple MPS)에서 실행</li>
+        <li>업계 표준 시험세트(ICCAD-2013 10-clip)의 성능을 <b>자동으로 채점하는 평가 도구</b>까지 구축</li>
+        <li>본업과 병행해 설계 → 광학 시뮬레이션 → 최적화 → 검증까지 핵심 흐름 전체를 혼자 구현 — <b>현재도 개선을 이어가는 진행형 프로젝트</b></li>
+      </ul>
       <div class="tagrow">
         <span class="tag">ILT</span><span class="tag">Hopkins/SOCS</span><span class="tag">PyTorch FFT</span><span class="tag">부분결맞음</span><span class="tag">OASIS 파싱</span><span class="tag">C++/CUDA</span>
       </div>
